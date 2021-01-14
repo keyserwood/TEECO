@@ -36,5 +36,28 @@ RTE réalise un bilan à la fin de chaque année pour faire un tour d'horizon de
 | **4. Structure du réseau**                   | - Lignes en exploitation [km]                                | - 105 942 km                                                 |
 | **5. Emission du CO2**                       | - Emissions de CO2 du mix  [Mt] et évolution par rapport à l'année précedente. | -19Mt (-6%)                                                  |
 
+> **Question 3**: : Pour les moyens dispatchables, reconstruire un module simple qui calcule le dispatch
+> heure par heure. Pour cela, on utilisera en entrée les capacités installées de chaque filière et la courbe
+> de demande nette. La demande nette est définie comme la consommation réelle à laquelle on
+> soustrait la production des filières fatales et les imports/exports.
+
+<img src="/home/elouan/Documents/ENPC/TEECO/figure4.1.png" alt="4.1 The Dispatch of Power Plants by an Electric Utility | EBF 483:  Introduction to Electricity Markets" style="zoom:33%;" />
+
+*Construire un script python (1h-1h30)*
+
+## Partie 2 : Economie du stockage
+
+>  Un actif de stockage se caractérise notamment par :
+>
+> * Une puissance installée en MW : Pmax
+> * Une capacité de stock en MWh (quantité d’énergie maximale que l’on peut stocker) : Emax
+> * Un rendement en % qui traduit les pertes qui interviennent lors du stockage/déstockage de
+>   l’énergie
+
+**2.1 Stockage journalier simplifié**
+
+On considère une capacité de stockage de 1MW de puissance, et de stock 1MWh. On suppose que chaque jour la capacité de stockage réalise une charge puis une décharge (dans cet ordre). Pour simplifier, on considérera ici l’évaluation sur un seul mois : le mois de janvier 2020 (prix France). Etablir le fonctionnement de ce stockage, et estimer le bénéfice réalisé. Proposer une évaluation économique (simplifiée) de la rentabilité du stockage.
 
 
+
+(*Creusage de dette 1h30*)
