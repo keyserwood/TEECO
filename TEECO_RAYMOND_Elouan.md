@@ -60,4 +60,28 @@ On considère une capacité de stockage de 1MW de puissance, et de stock 1MWh. O
 
 
 
-(*Creusage de dette 1h30*)
+###### Fonctionnement du système de stockage : 
+
+Le système de stockage a pour objectif de faire du profit en se chargeant quand le prix est faible (généralement la nuit) et en se déchargeant lorsque le prix est le plus elevé. Connaissant les caractéristiques du système de stokage : 
+
+> **Caractéristiques du système de stockage**
+>
+> * $$ Energie = E_{max}$$ [MWh] :arrow_right: $$\boxed{E_{max} = 1MWh}$$ 
+>   * Cela correspond au stock d'énergie dont dispose l'unité de stockage, et donc l'energie que peut absorber l'unité lors de la charge. 
+> * $$ Puissance = P_{max}$$ [MWh] :arrow_right: $$\boxed{P_{max} = 1MW}$$ .
+>   * En fonction de la puissance on connaît le temps qu'il faut pour charger l'unité, et la décharger. $$\boxed{E = P.\delta t}$$. **On charge donc l'unité de stockage en heure.** 
+>
+> * $$Rendement = \rho$$ . En fonction du rendement l'unité de stockage décharge sur le réseau $\boxed{E_{decharge} = \rho*E_{max}}$
+
+**Economie du système:**
+
+Avec une charge par jour et une décharge par jour, il faut donc que le système se charge lorsque le prix est le plus bas, et se décharge lorsque le prix est le plus elevé. 
+
+> **Rentabilité du système** : Pour que le système puisse réaliser des profits sur la journée considérée, le rendement $\rho$ joue un **rôle crucial**.
+>
+> L'argent percue à la revente étant : $E_{decharge}.Prix_{revente} = \rho.E_{max}.Prix_{revente}$ il faut que :
+>
+> :arrow_right:$\rho.E_{max}.Prix_{revente} > E_{max}.Prix_{achat}$ soit $\boxed{\rho > \frac{Prix_{achat}}{Prix_{revente}}}$ 
+
+*Pour expliquer le point de vue voici deux graphiques, et le profit réalisé en fonction du rendement*:
+
