@@ -43,6 +43,16 @@ RTE réalise un bilan à la fin de chaque année pour faire un tour d'horizon de
 
 <img src="/home/elouan/Documents/ENPC/TEECO/figure4.1.png" alt="4.1 The Dispatch of Power Plants by an Electric Utility | EBF 483:  Introduction to Electricity Markets" style="zoom:33%;" />
 
+<br><br> <br>
+
+<br><br>
+
+Grâce à un module python (cf annexe), nous pouvons déterminer le dispatch avec la courbe de demande et les moyens de production : 
+
+<img src="/home/elouan/.config/Typora/typora-user-images/image-20210120155915703.png" alt="image-20210120155915703" style="zoom:50%;" />
+
+
+
 *Construire un script python (1h-1h30)*
 
 ## Partie 2 : Economie du stockage
@@ -83,5 +93,130 @@ Avec une charge par jour et une décharge par jour, il faut donc que le système
 >
 > :arrow_right:$\rho.E_{max}.Prix_{revente} > E_{max}.Prix_{achat}$ soit $\boxed{\rho > \frac{Prix_{achat}}{Prix_{revente}}}$ 
 
-*Pour expliquer le point de vue voici deux graphiques, et le profit réalisé en fonction du rendement*:
+*Pour expliquer ce point de vue voici deux graphiques, et le profit réalisé en fonction du rendement*:
+
+
+
+<p float="center"><center>
+    <img src="/home/elouan/Documents/ENPC/TEECO/rho_ok.png" width="300">
+    <img src="/home/elouan/Documents/ENPC/TEECO/rho_nok.png" width="300">
+    </center>
+</p>
+
+*Le 21/01 en fonction du rendement, il n'est pas forcément rentable d'opérer à une charge et à une décharge d'electricité :*
+
+* Avec un $\rho=0.5$, le système de stockage n'est pas rentable, car il ne peut pas se charger et se décharger en réalisant un profit. Il faut donc envisager un rendement plus important avoir d'avoir une rentabilité.
+
+
+
+##### Bilan pour plusieurs rendement sur un mois
+
+*Nous pouvons désormais simuler les profits opéré sur un mois avec plusieurs valeurs de rendement, nous obtenons le tableau suivant :*
+
+![image-20210116162222584](/home/elouan/.config/Typora/typora-user-images/image-20210116162222584.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Annexe :
+
+### Partie 1 : Module python pour le calcul du dispatch 
+
+```python
+hours = [i for i in range(24)]
+demande = [50,45,40,40,40,40,40,40,40,45,50,55,60,60,60,70,70,70,65,60,57,53,50,50]
+capacity = [30,20,10,5]
+```
+
+<br> 
+
+```python
+def dispatch(demande, capacity):
+    capacity.sort(reverse=True)
+    # Il faut d'abord créer le dispatch, pour cela on utilise une matrice afin de savoir quelle unité sont utilisée à quelle heure
+    mat = np.zeros((len(capacity)+1,24))
+    capacities = np.zeros((len(capacity)+1,24))
+    for (i,d) in enumerate(demande) : 
+        # Pour chaque demande horaire, nous devons calculer le dispatch adéquat
+        r = d 
+        j = 0
+        while r!=0 and j<len(capacity) :
+                if capacity[j] < r:
+                    # Cette capacité n'est pas suffisante pour répondre à la demande
+                    r = r-capacity[j]
+                    mat[j][i] = 1
+                else :
+                    # La capacité  est supérieure à ce dont nous avons besoin on n'en utilisera qu'une partie 
+                    r = 0
+                    mat[j][i] = 1
+                    # signifie que nous allons exporter l'énergie résiduelle 
+                    mat[len(capacity)][i] = -1
+
+                j+=1
+        if r!=0:
+            mat[len(capacity)][i] = 1
+    #Ensuite on créé les vecteurs qui vont nous permettre d'afficher le dispatch
+    for i in range(len(hours)):
+        #### On parcourt chaque heure
+        maxcap_h = 0 #Permet de savoir quelle est le niveau minimum de production pour chaque heure utile pour tracer
+        for j in range(len(capacity)+1):
+            if j!=len(capacity):
+                if mat[j][i] !=0:
+                    capacities[j][i] = sum(capacity[:j+1]) #On définit la capacité
+                    maxcap_h = capacities[j][i]
+                else :
+                    capacities[j][i] = maxcap_h
+
+            else : 
+                if mat[j][i]!=0:
+                    # Les unités de production ne sont pas suffisante, ou trop importantes, il faut importer // exporter
+                    capacities[j][i] = (demande[i]-sum(capacity))
+    plot_dispatch(demande,capacity,capacities,mat)
+    return(mat,capacities)
+```
 
