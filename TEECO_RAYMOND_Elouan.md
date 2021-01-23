@@ -57,6 +57,44 @@ Grâce à un module python (cf annexe), nous pouvons déterminer le dispatch ave
 
 
 
+Voici donc deux dispatch possible avec en fonction du nombre de capacité plus au moins d'export ou import d'electricité. 
+
+<img src="/home/elouan/Documents/ENPC/TEECO/conso_prod_reelle.png" alt="image-20210123233430586" style="zoom:40%;" />
+
+Voici la vraie répartion du mix éléctrique :
+
+##### Quelques remarques : 
+
+* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -87,7 +125,7 @@ Le système de stockage a pour objectif de faire du profit en se chargeant quand
 > * $$ Puissance = P_{max}$$ [MWh] :arrow_right: $$\boxed{P_{max} = 1MW}$$ .
 >   * En fonction de la puissance on connaît le temps qu'il faut pour charger l'unité, et la décharger. $$\boxed{E = P.\delta t}$$. **On charge donc l'unité de stockage en heure.** 
 >
-> * $$Rendement = \rho$$ . En fonction du rendement l'unité de stockage décharge sur le réseau $\boxed{E_{decharge} = \rho*E_{max}}$
+> * $$Rendement = \rho$$ . En fonction du rendement l'unité de stockage décharge sur le réseau $\boxed{E_{decharge} = \rho*E_{max}}$ (cf. Annexe rendement batterie)
 
 **Economie du système:**
 
@@ -183,4 +221,6 @@ La formulation de la question 2 comporte effectivement une        erreur de sign
 * $$SoC(0) = 0$$
 
 
+
+<img src="/home/elouan/Documents/ENPC/TEECO/effiency_battery.jpg" alt="Know your solar power system" style="zoom:33%;" />
 
