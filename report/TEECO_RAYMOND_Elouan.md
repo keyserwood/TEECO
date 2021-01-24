@@ -109,8 +109,7 @@ RTE réalise un bilan à la fin de chaque année pour faire un tour d'horizon de
 
 
 
-
-<p style="text-align:justify;">Voici la réprésentation du dispatch que nous souhaitons de reproduire. Pour ce faire, nous allons construire un module python qui prend en entrée la demande journalière et les capacités de production disponible. Si la <b>production</b> est <b>supérieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>exportée</b>. A l'inverse, Si la <b>production</b> est <b>inférieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>importée</b>. La capacité de production totale dépendra des capacités installées sur le système. Nous pourrons donc faire varier le dispatch en fonction du nombre d'outils de production. Le code est disponible en annexe.</p>
+<p style="text-align:justify;">Voici la représentation du dispatch que nous souhaitons reproduire. Pour ce faire, nous allons construire un module python qui prend en entrée la demande journalière et les capacités de production disponible. Si la <b>production</b> est <b>supérieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>exportée</b>. A l'inverse, Si la <b>production</b> est <b>inférieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>importée</b>. La capacité de production totale dépendra des capacités installées sur le système. Nous pourrons donc faire varier le dispatch en fonction du nombre d'outils de production. Le code est disponible en annexe.</p>
 
 <div style="page-break-after: always;"></div><br><br>
 
@@ -134,7 +133,7 @@ Ci dessous, voici le vrai mix electrique de la journée du 01/01/2020, les donn�
 
 <p style="text-align:justify;">Par rapport au module python que nous avons implémenté, on peut observer que la production totale est tout le temps bien supérieure à la consommation réelle.<br>Le nombre de moyens de production est bien entendu beaucoup plus varié : 10 moyens de production différent, avec toujours une part majoritaire d'électricité produite grâce au nucléaire. La production d'électricité via les énergies éoliennes et solaires reste assez marginale en ce premier jour de janvier. <br>La courbe de consommation est moins accentuée que celle que nous avons construire pour notre module, mais nous observons tout de même des variations logiques au cours de la journée.</p>
 
-<div style="page-break-after: always;"></div><br><br>
+<div style="page-break-after: always;"></div><br><br><br>
 
 ## Partie 2 : Economie du stockage
 
@@ -179,13 +178,7 @@ Avec une charge par jour et une décharge par jour, il faut donc que le système
     </center>
 </p>
 
-<div style="page-break-after: always;"></div>
-
-
-
-
-
-
+<div style="page-break-after: always;"></div><br><br><br>
 
 
 *Le 21/01 en fonction du rendement, il n'est pas forcément rentable d'opérer à une charge et à une décharge d'electricité :*
@@ -203,23 +196,110 @@ Ainsi sur de nombreuses journées, un technologie de stockage avec un faible ren
 
 **Choix d'une technologie appropriée**
 
-Le tableau en [annexe](#rendement-des-unités-de-stockages-en-fonction-de-la-technologie) 
+Le tableau en [annexe](#rendement-des-unités-de-stockages-en-fonction-de-la-technologie) permet d'avoir connaissance des différents types de technologies utilisables. On peut regrouper pour chaque type de technologies, par année, la moyenne du coût de ces installations (scénario de référence), le rendement (round-trip efficiency), et le ratio : $\frac{\rho}{Installation\:cost}$. 
 
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Installation-cost-reference</th>
+      <th>Rho</th>
+      <th>Rho/Cost</th>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <th>Type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">2016</th>
+      <th>Lead-acid</th>
+      <td>205.00</td>
+      <td>81.00</td>
+      <td>0.395122</td>
+    </tr>
+    <tr>
+      <th>High- temperature</th>
+      <td>383.50</td>
+      <td>82.00</td>
+      <td>0.213820</td>
+    </tr>
+    <tr>
+      <th>Li-ion</th>
+      <td>600.00</td>
+      <td>94.50</td>
+      <td>0.157500</td>
+    </tr>
+    <tr>
+      <th>Flow</th>
+      <td>623.50</td>
+      <td>70.00</td>
+      <td>0.112269</td>
+    </tr>
+    <tr>
+      <th>Mechanical</th>
+      <td>1024.67</td>
+      <td>74.67</td>
+      <td>0.072872</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">2030</th>
+      <th>Lead-acid</th>
+      <td>103.00</td>
+      <td>84.00</td>
+      <td>0.815534</td>
+    </tr>
+    <tr>
+      <th>High- temperature</th>
+      <td>161.50</td>
+      <td>86.00</td>
+      <td>0.532508</td>
+    </tr>
+    <tr>
+      <th>Li-ion</th>
+      <td>253.50</td>
+      <td>96.50</td>
+      <td>0.380671</td>
+    </tr>
+    <tr>
+      <th>Flow</th>
+      <td>214.00</td>
+      <td>78.00</td>
+      <td>0.364486</td>
+    </tr>
+    <tr>
+      <th>Mechanical</th>
+      <td>674.67</td>
+      <td>78.33</td>
+      <td>0.116101</td>
+    </tr>
+  </tbody>
+</table>
 
+Plus le ratio est elevé, et plus l'installation est intéressante. Voici les profits possibles sur la base des prix de 2016, avec *Lead-Acid* (0.81) ,*High-temperature* (0.82),*Li-ion* (0.94)  : 
 
+<p float="center"><center>
+    <img src="/home/elouan/Documents/ENPC/TEECO/report/img/choix_techno.png" width="250">
+    <img src="/home/elouan/Documents/ENPC/TEECO/report/img/choix_techno2.png" width="500">
+    </center>
+</p>
 
+Avec ces technologies on peut dégager un profit relativement intéressant, et en privilégiant le ratio $\frac{\rho}{Installation\:cost}$ le plus éléve, on minimise les frais d'installations, et on augmente donc la rentabilité du système, les CAPEX ayant une grande importance sur la rentabilité d'un projet.
 
-Voici quelques éléments de réponse à tes questions :
+<div style="page-break-after: always;"></div><br><br><br>
 
+## Complexification de la modélisation du stockage (problème d’optimisation)
 
-
-La formulation de la question 2 comporte effectivement une        erreur de signe comme tu le mentionnes. Pour le bilan        économique, il faut bien compter la charge en négatif (on paie        pour charger) et la décharge en positif (on gagne de l'argent        lorsqu'on décharge). Je vais corriger l'énoncé. Merci.
-
-<div style="page-break-after: always;"></div><br><br>
+<div style="page-break-after: always;"></div><br><br><br>
 
 ## Annexe :
 
-> Code disponible sur mon github : 
+> Code disponible sur mon github : https://github.com/keyserwood/TEECO
 
 
 
