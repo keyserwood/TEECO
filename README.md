@@ -6,6 +6,7 @@ Projet réalisé dans le cadre du cours d'économie de l'énergie dispensé dans
 
 #### Structure du projet : 
 
+```
 ├── data (données du sujet)
 │   ├── consommation-quotidienne-brute.xlsx
 │   ├── Day-ahead_Prices_FR_2020.csv
@@ -21,3 +22,5 @@ Projet réalisé dans le cadre du cours d'économie de l'énergie dispensé dans
 │   ├── TEECO_RAYMOND_Elouan.pdf (rapport au format pdf)
 │   └── style.css
 └── Sujet.pdf
+```
+
