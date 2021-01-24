@@ -6,27 +6,86 @@
 </style>
 <link rel="stylesheet" href="style.css">
 
-Elouan RAYMOND
+<br><br>
 
-# Projet personnel - TEECO 
+<br>
 
-****
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<img src="https://www.ecoledesponts.fr/sites/ecoledesponts.fr/files/ckfinder/ckfinder/archives/l-ecole/3-ecole_ponts20_cmjn_600.jpg" alt="Charte graphique | ecoledesponts.fr" style="zoom:20%;" />
+
+<div style='text-align:center;font-size:large;'>
+    <br>École des Ponts ParisTech<br><br>
+    01/02/2020
+</div>
+
+<div style='text-align:center;font-size:large;'>
+    <p style='text-align:center;font-size:xx-large;'>
+       Projet TEECO - Economie de l'énergie 
+    </p>
+</div><br>
+<div style='text-align:center;font-size:x-large;'>
+    <mark style="background-color: yellow;">Analyse de données du marché de l'électricité et optimisation</mark>
+</div><br><br> 
+
+<br>
+
+<br>
+
+
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<div style='text-align:center;font-size:medium;'>
+    Elouan RAYMOND - ENPC 
+</div>
+
+<div style="page-break-after: always;"></div><br><br><br><br>
 
 ## Partie 1 : Le mix électrique français en 2019
 
-> ###### Question 1 : L'origine des données 
->
+#### Question 1 : L'origine des données 
+
 > *Toutes les données nécessaires sont disponibles gratuitement en ligne. Voici quelques sites utiles :*
-> 	https://opendata.reseaux-energies.fr/pages/accueil/
+>	https://opendata.reseaux-energies.fr/pages/accueil/
 > 	https://bilan-electrique-2019.rte-france.com/
 > 	https://transparency.entsoe.eu/
->
+> 
 > *Qui fournit les donnés disponibles sur ces sites ? Pourquoi ?* 
 
 <p style="text-align:justify;"><b>La loi  pour une république numérique</b> du 7 octobre 2016 (ou loi Lemaire) prévoit entre autre l'accès aux données publiques. L'Etat, les collectivités, les personnes de droit public ou de droit privés chargées d'une mission de service public doivent fournir des données. De nombreuses base de données sont ainsi accessible, comme le registre Sirene des entreprises, mais aussi les données liée à l'energie. <br>De nombreux acteurs de l'énergie public ou privés ont mis à disposition des données (hors données personnelles). <b>EDF</b> a mis en ligne les données propres à ses infrastructures, sa production et la consommation en Corse et en outre-mer. <b>Enedis et RTE</b> qui gèrent le réseau de distribution mettent en ligne les quantités d'électricité consommées et produites sur toute la France. GRTgaz et Teréga ont créé la plateforme opendata réseaux qui regroupe des acteurs privés afin de coupler données energétiques et données climatiques. Un accès et une mutualisation de ces données permet une <b>meilleure comprhénsion du système</b> et de <b>meilleures prises de décisions</b>, notamment grâce à des <b>analyses intersectorielles</b>.</p>
 
-> **Question 2 :** Pour l’année 2019 uniquement, présenter les indicateurs clés permettant de comprendre
-> le mix électrique français (côté demande et côté offre).
+#### Question 2 : Le mix électrique
+
+> Pour l’année 2019 uniquement, présenter les indicateurs clés permettant de comprendre le mix électrique français (côté demande et côté offre).
 
 RTE réalise un bilan à la fin de chaque année pour faire un tour d'horizon de la production et de la consommation d'électricité dans le pays. 
 
@@ -40,61 +99,42 @@ RTE réalise un bilan à la fin de chaque année pour faire un tour d'horizon de
 | **4. Structure du réseau**                   | - Lignes en exploitation [km]                                | - 105 942 km                                                 |
 | **5. Emission du CO2**                       | - Emissions de CO2 du mix  [Mt] et évolution par rapport à l'année précedente. | -19Mt (-6%)                                                  |
 
-> **Question 3**:  Pour les moyens dispatchables, reconstruire un module simple qui calcule le dispatch heure par heure. Pour cela, on utilisera en entrée les capacités installées de chaque filière et la courbe de demande nette.
+#### Question 3 : Le dispatch des moyens de production
 
+> Pour les moyens dispatchables, reconstruire un module simple qui calcule le dispatch heure par heure. Pour cela, on utilisera en entrée les capacités installées de chaque filière et la courbe de demande nette.
 
 <div style=" float:left;margin-right:5px;">
-<img src="/home/elouan/Documents/ENPC/TEECO/figure4.1.png" alt="4.1 The Dispatch of Power Plants by an Electric Utility | EBF 483:  Introduction to Electricity Markets" style="zoom:33%;" />
+<img src="/home/elouan/Documents/ENPC/TEECO/report/img/figure4.1.png" alt="4.1 The Dispatch of Power Plants by an Electric Utility | EBF 483:  Introduction to Electricity Markets" style="zoom:33%;" />
 </div>
+
 
 
 
 <p style="text-align:justify;">Voici la réprésentation du dispatch que nous souhaitons de reproduire. Pour ce faire, nous allons construire un module python qui prend en entrée la demande journalière et les capacités de production disponible. Si la <b>production</b> est <b>supérieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>exportée</b>. A l'inverse, Si la <b>production</b> est <b>inférieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>importée</b>. La capacité de production totale dépendra des capacités installées sur le système. Nous pourrons donc faire varier le dispatch en fonction du nombre d'outils de production. Le code est disponible en annexe.</p>
 
-
-
-<br><br> <br>
-
-<br><br>
-
-<br>
-
-<br>
+<div style="page-break-after: always;"></div><br><br>
 
 Nous pouvons déterminer le dispatch avec la courbe de demande et les moyens de production : 
 
 <p float="center"><center>
-    <img src="/home/elouan/Documents/ENPC/TEECO/dispatch_1.png" width="300">
-    <img src="/home/elouan/Documents/ENPC/TEECO/dispatch_2.png" width="300">
+    <img src="/home/elouan/Documents/ENPC/TEECO/report/img/dispatch_1.png" width="300">
+    <img src="/home/elouan/Documents/ENPC/TEECO/report/img/dispatch_2.png" width="300">
     </center>
 </p>
+
 
 
 Avec 4 outils de production d'une capacité suffisante, nous pouvons couvrir quasiment toute la demande, et même exporter une partie de l'electricité produite quand cela est nécessaire. A contrario avec 2 outils de production, il est nécessaire d'importer une grande quantité d'électricité afin de pallier au pic de consommation. 
 
 Ci dessous, voici le vrai mix electrique de la journée du 01/01/2020, les données provenant de : https://opendata.reseaux-energies.fr/pages/accueil/.
 
-<img src="/home/elouan/Documents/ENPC/TEECO/conso_prod_reelle.png" alt="image-20210124111221589" style="zoom:50%;" />
+<img src="/home/elouan/Documents/ENPC/TEECO/report/img/conso_prod_reelle.png" alt="image-20210124111221589" style="zoom:50%;" />
 
 ##### Quelques remarques : 
 
 <p style="text-align:justify;">Par rapport au module python que nous avons implémenté, on peut observer que la production totale est tout le temps bien supérieure à la consommation réelle.<br>Le nombre de moyens de production est bien entendu beaucoup plus varié : 10 moyens de production différent, avec toujours une part majoritaire d'électricité produite grâce au nucléaire. La production d'électricité via les énergies éoliennes et solaires reste assez marginale en ce premier jour de janvier. <br>La courbe de consommation est moins accentuée que celle que nous avons construire pour notre module, mais nous observons tout de même des variations logiques au cours de la journée.</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div style="page-break-after: always;"></div><br><br>
 
 ## Partie 2 : Economie du stockage
 
@@ -109,7 +149,7 @@ Ci dessous, voici le vrai mix electrique de la journée du 01/01/2020, les donn�
 
 <p style="text-align:justify;">On considère une capacité de stockage de 1MW de puissance, et de stock 1MWh. On suppose que chaque jour la capacité de stockage réalise une charge puis une décharge (dans cet ordre). Pour simplifier, on considérera ici l’évaluation sur un seul mois : le mois de janvier 2020 (prix France). Etablir le fonctionnement de ce stockage, et estimer le bénéfice réalisé. Proposer une évaluation économique (simplifiée) de la rentabilité du stockage.</p>
 
-###### Fonctionnement du système de stockage : 
+#### Fonctionnement du système de stockage : 
 
 Le système de stockage a pour objectif de faire du profit en se chargeant quand le prix est faible (généralement la nuit) et en se déchargeant lorsque le prix est le plus elevé. Connaissant les caractéristiques du système de stokage : 
 
@@ -119,8 +159,7 @@ Le système de stockage a pour objectif de faire du profit en se chargeant quand
 >   * Cela correspond au stock d'énergie dont dispose l'unité de stockage, et donc l'energie que peut absorber l'unité lors de la charge. 
 > * $$ Puissance = P_{max}$$ [MWh] :arrow_right: $$\boxed{P_{max} = 1MW}$$ .
 >   * En fonction de la puissance on connaît le temps qu'il faut pour charger l'unité, et la décharger. $$\boxed{E = P.\delta t}$$. **On charge donc l'unité de stockage en une heure.** 
->
-> * $$Rendement = \rho$$ . En fonction du rendement l'unité de stockage décharge sur le réseau $\boxed{E_{decharge} = \rho*E_{max}}$ (cf. Annexe rendement batterie)
+>* $$Rendement = \rho$$ . En fonction du rendement l'unité de stockage décharge sur le réseau $\boxed{E_{decharge} = \rho*E_{max}}$ (cf. Annexe [rendement batterie](#Fonctionnement d'une unité de stockage))
 
 **Economie du système:**
 
@@ -135,11 +174,12 @@ Avec une charge par jour et une décharge par jour, il faut donc que le système
 *Pour expliquer ce point de vue voici deux graphiques, et le profit réalisé en fonction du rendement*:
 
 <p float="center"><center>
-    <img src="/home/elouan/Documents/ENPC/TEECO/rho_ok.png" width="250">
-    <img src="/home/elouan/Documents/ENPC/TEECO/rho_nok.png" width="250">
+    <img src="/home/elouan/Documents/ENPC/TEECO/report/img/rho_ok.png" width="250">
+    <img src="/home/elouan/Documents/ENPC/TEECO/report/img/rho_nok.png" width="250">
     </center>
 </p>
 
+<div style="page-break-after: always;"></div>
 
 
 
@@ -153,7 +193,7 @@ Avec une charge par jour et une décharge par jour, il faut donc que le système
 * Avec un $\rho=0.5$, le système de stockage **n'est pas rentable**, car il ne peut pas se charger et se décharger en réalisant un profit. Il faut donc envisager un rendement plus important avoir d'avoir une rentabilité.
 * Avec un $\rho=0.7$, le système de stockage **est  rentable**, il peut  se charger et se décharger en réalisant un profit. 
 
-##### Bilan pour plusieurs rendement sur un mois
+#### Bilan pour plusieurs rendement sur un mois
 
 *Nous pouvons désormais simuler les profits opéré sur un mois avec plusieurs valeurs de rendement, nous obtenons le tableau suivant :*
 
@@ -162,6 +202,8 @@ Avec une charge par jour et une décharge par jour, il faut donc que le système
 Ainsi sur de nombreuses journées, un technologie de stockage avec un faible rendement ne permet pas de réaliser du profit. 
 
 **Choix d'une technologie appropriée**
+
+Le tableau en [annexe](#rendement-des-unités-de-stockages-en-fonction-de-la-technologie) 
 
 
 
@@ -173,43 +215,9 @@ Voici quelques éléments de réponse à tes questions :
 
 La formulation de la question 2 comporte effectivement une        erreur de signe comme tu le mentionnes. Pour le bilan        économique, il faut bien compter la charge en négatif (on paie        pour charger) et la décharge en positif (on gagne de l'argent        lorsqu'on décharge). Je vais corriger l'énoncé. Merci.
 
+<div style="page-break-after: always;"></div><br><br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Annexe :
+## Annexe :
 
 > Code disponible sur mon github : 
 
@@ -217,8 +225,8 @@ La formulation de la question 2 comporte effectivement une        erreur de sign
 
 ##### Fonctionnement d'une unité de stockage
 
-<img src="/home/elouan/Documents/ENPC/TEECO/effiency_battery.jpg" alt="Know your solar power system" style="zoom:33%;" />
+<img src="/home/elouan/Documents/ENPC/TEECO/report/img/effiency_battery.jpg" alt="Know your solar power system" style="zoom:33%;" />
 
 ##### Rendement des unités de stockages en fonction de la technologie
 
-<img src="/home/elouan/Documents/ENPC/TEECO/caracteristiques_tech_stockage.png" alt="image-20210124114632489" style="zoom:67%;" />
+<img src="/home/elouan/Documents/ENPC/TEECO/report/img/caracteristiques_tech_stockage.png" alt="image-20210124114632489" style="zoom:67%;" />
