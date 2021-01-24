@@ -215,14 +215,10 @@ La formulation de la question 2 comporte effectivement une        erreur de sign
 
 
 
-* $$ max \sum_{h \in heures} Prix(h)*(Edecharge(h) + Echarge(h))$$
-* $$ 0 \leq Edecharge(h) \leq Pmax.\rho$$
-* $$ -Pmax\leq Echarge(h) \leq 0$$
-* $$ SoC(h+1)  = SoC(h) - Edecharge(h) +Echarge(h)$$
-* $$ 0 \leq SoC(h) \leq Emax $$
-* $$SoC(0) = 0$$
-
-
+##### Fonctionnement d'une unité de stockage
 
 <img src="/home/elouan/Documents/ENPC/TEECO/effiency_battery.jpg" alt="Know your solar power system" style="zoom:33%;" />
 
+##### Rendement des unités de stockages en fonction de la technologie
+
+<img src="/home/elouan/Documents/ENPC/TEECO/caracteristiques_tech_stockage.png" alt="image-20210124114632489" style="zoom:67%;" />
