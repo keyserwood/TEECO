@@ -1,4 +1,10 @@
-<style type = "text/css">@page {size:letter;margin:-1em -3.5em -1em;text-align: justify;}//theme = academic & px = 12</style>
+<style type = "text/css">@page {size:letter;margin:-1em -3.5em -1em;text-align: justify;}//theme = academic & px = 12</style>		
+<style> float-my-children {
+    float:left;
+    margin-right:5px;
+}
+</style>
+<link rel="stylesheet" href="style.css">
 
 Elouan RAYMOND
 
@@ -17,9 +23,7 @@ Elouan RAYMOND
 >
 > *Qui fournit les donnés disponibles sur ces sites ? Pourquoi ?* 
 
- La loi  pour une république numérique du 7 octobre 2016 (ou loi Lemaire) prévoit entre autre l'accès aux données publiques. L'Etat, les collectivités, les personnes de droit public ou de droit privés chargées d'une mission de service public doivent fournir des données. De nombreuses base de données sont ainsi accessible, comme le registre Sirene des entreprises, mais aussi les données liée à l'energie. 
-
-De nombreux acteurs de l'énergie public ou privés ont mis à disposition des données (hors données personnelles). EDF a mis en ligne les données propres à ses infrastructures, sa production et la consommation en Corse et en outre-mer. Enedis et RTE qui gèrent le réseau de distributrion mettent en ligne les quantités d'électricité consommées et produits sur toute la France. GRTgaz et Teréga ont créé la plateforme opendata réseaux qui regroupe des acteurs privés afin d'allier données energétiques et données climatiques. Un accès et une mutualisation de ces données permet une meilleure comprhénsion du système et de meilleures prises de décisions, notamment grâce à des analyses intersectorielles.
+<p style="text-align:justify;"><b>La loi  pour une république numérique</b> du 7 octobre 2016 (ou loi Lemaire) prévoit entre autre l'accès aux données publiques. L'Etat, les collectivités, les personnes de droit public ou de droit privés chargées d'une mission de service public doivent fournir des données. De nombreuses base de données sont ainsi accessible, comme le registre Sirene des entreprises, mais aussi les données liée à l'energie. <br>De nombreux acteurs de l'énergie public ou privés ont mis à disposition des données (hors données personnelles). <b>EDF</b> a mis en ligne les données propres à ses infrastructures, sa production et la consommation en Corse et en outre-mer. <b>Enedis et RTE</b> qui gèrent le réseau de distribution mettent en ligne les quantités d'électricité consommées et produites sur toute la France. GRTgaz et Teréga ont créé la plateforme opendata réseaux qui regroupe des acteurs privés afin de coupler données energétiques et données climatiques. Un accès et une mutualisation de ces données permet une <b>meilleure comprhénsion du système</b> et de <b>meilleures prises de décisions</b>, notamment grâce à des <b>analyses intersectorielles</b>.</p>
 
 > **Question 2 :** Pour l’année 2019 uniquement, présenter les indicateurs clés permettant de comprendre
 > le mix électrique français (côté demande et côté offre).
@@ -36,18 +40,26 @@ RTE réalise un bilan à la fin de chaque année pour faire un tour d'horizon de
 | **4. Structure du réseau**                   | - Lignes en exploitation [km]                                | - 105 942 km                                                 |
 | **5. Emission du CO2**                       | - Emissions de CO2 du mix  [Mt] et évolution par rapport à l'année précedente. | -19Mt (-6%)                                                  |
 
-> **Question 3**: : Pour les moyens dispatchables, reconstruire un module simple qui calcule le dispatch
-> heure par heure. Pour cela, on utilisera en entrée les capacités installées de chaque filière et la courbe
-> de demande nette. La demande nette est définie comme la consommation réelle à laquelle on
-> soustrait la production des filières fatales et les imports/exports.
+> **Question 3**:  Pour les moyens dispatchables, reconstruire un module simple qui calcule le dispatch heure par heure. Pour cela, on utilisera en entrée les capacités installées de chaque filière et la courbe de demande nette.
 
+
+<div style=" float:left;margin-right:5px;">
 <img src="/home/elouan/Documents/ENPC/TEECO/figure4.1.png" alt="4.1 The Dispatch of Power Plants by an Electric Utility | EBF 483:  Introduction to Electricity Markets" style="zoom:33%;" />
+</div>
+
+
+
+<p style="text-align:justify;">Voici la réprésentation du dispatch que nous souhaitons de reproduire. Pour ce faire, nous allons construire un module python qui prend en entrée la demande journalière et les capacités de production disponible. Si la <b>production</b> est <b>supérieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>exportée</b>. A l'inverse, Si la <b>production</b> est <b>inférieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>importée</b>. La capacité de production totale dépendra des capacités installées sur le système. Nous pourrons donc faire varier le dispatch en fonction du nombre d'outils de production. Le code est disponible en annexe.</p>
+
+
 
 <br><br> <br>
 
 <br><br>
 
-Grâce à un module python (cf annexe), nous pouvons déterminer le dispatch avec la courbe de demande et les moyens de production : 
+<br>
+
+Nous pouvons déterminer le dispatch avec la courbe de demande et les moyens de production : 
 
 <p float="center"><center>
     <img src="/home/elouan/Documents/ENPC/TEECO/dispatch_1.png" width="300">
@@ -56,16 +68,15 @@ Grâce à un module python (cf annexe), nous pouvons déterminer le dispatch ave
 </p>
 
 
+Avec 4 outils de production d'une capacité suffisante, nous pouvons couvrir quasiment toute la demande, et même exporter une partie de l'electricité produite quand cela est nécessaire. A contrario avec 2 outils de production, il est nécessaire d'importer une grande quantité d'électricité afin de pallier au pic de consommation. 
 
-Voici donc deux dispatch possible avec en fonction du nombre de capacité plus au moins d'export ou import d'electricité. 
+Ci dessous, voici le vrai mix electrique de la journée du 01/01/2020, les données provenant de : https://opendata.reseaux-energies.fr/pages/accueil/.
 
-<img src="/home/elouan/Documents/ENPC/TEECO/conso_prod_reelle.png" alt="image-20210123233430586" style="zoom:40%;" />
-
-Voici la vraie répartion du mix éléctrique :
+<img src="/home/elouan/Documents/ENPC/TEECO/conso_prod_reelle.png" alt="image-20210124111221589" style="zoom:50%;" />
 
 ##### Quelques remarques : 
 
-* 
+Par rapport au module python que nous avons implémenté, on peut observer que la production totale est tout le temps bien supérieure à la consommation réelle. 
 
 
 
@@ -123,7 +134,7 @@ Le système de stockage a pour objectif de faire du profit en se chargeant quand
 > * $$ Energie = E_{max}$$ [MWh] :arrow_right: $$\boxed{E_{max} = 1MWh}$$ 
 >   * Cela correspond au stock d'énergie dont dispose l'unité de stockage, et donc l'energie que peut absorber l'unité lors de la charge. 
 > * $$ Puissance = P_{max}$$ [MWh] :arrow_right: $$\boxed{P_{max} = 1MW}$$ .
->   * En fonction de la puissance on connaît le temps qu'il faut pour charger l'unité, et la décharger. $$\boxed{E = P.\delta t}$$. **On charge donc l'unité de stockage en heure.** 
+>   * En fonction de la puissance on connaît le temps qu'il faut pour charger l'unité, et la décharger. $$\boxed{E = P.\delta t}$$. **On charge donc l'unité de stockage en une heure.** 
 >
 > * $$Rendement = \rho$$ . En fonction du rendement l'unité de stockage décharge sur le réseau $\boxed{E_{decharge} = \rho*E_{max}}$ (cf. Annexe rendement batterie)
 
