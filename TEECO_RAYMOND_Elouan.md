@@ -59,6 +59,8 @@ RTE réalise un bilan à la fin de chaque année pour faire un tour d'horizon de
 
 <br>
 
+<br>
+
 Nous pouvons déterminer le dispatch avec la courbe de demande et les moyens de production : 
 
 <p float="center"><center>
@@ -76,23 +78,7 @@ Ci dessous, voici le vrai mix electrique de la journée du 01/01/2020, les donn�
 
 ##### Quelques remarques : 
 
-Par rapport au module python que nous avons implémenté, on peut observer que la production totale est tout le temps bien supérieure à la consommation réelle. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p style="text-align:justify;">Par rapport au module python que nous avons implémenté, on peut observer que la production totale est tout le temps bien supérieure à la consommation réelle.<br>Le nombre de moyens de production est bien entendu beaucoup plus varié : 10 moyens de production différent, avec toujours une part majoritaire d'électricité produite grâce au nucléaire. La production d'électricité via les énergies éoliennes et solaires reste assez marginale en ce premier jour de janvier. <br>La courbe de consommation est moins accentuée que celle que nous avons construire pour notre module, mais nous observons tout de même des variations logiques au cours de la journée.</p>
 
 
 
@@ -121,9 +107,7 @@ Par rapport au module python que nous avons implémenté, on peut observer que l
 
 **2.1 Stockage journalier simplifié**
 
-On considère une capacité de stockage de 1MW de puissance, et de stock 1MWh. On suppose que chaque jour la capacité de stockage réalise une charge puis une décharge (dans cet ordre). Pour simplifier, on considérera ici l’évaluation sur un seul mois : le mois de janvier 2020 (prix France). Etablir le fonctionnement de ce stockage, et estimer le bénéfice réalisé. Proposer une évaluation économique (simplifiée) de la rentabilité du stockage.
-
-
+<p style="text-align:justify;">On considère une capacité de stockage de 1MW de puissance, et de stock 1MWh. On suppose que chaque jour la capacité de stockage réalise une charge puis une décharge (dans cet ordre). Pour simplifier, on considérera ici l’évaluation sur un seul mois : le mois de janvier 2020 (prix France). Etablir le fonctionnement de ce stockage, et estimer le bénéfice réalisé. Proposer une évaluation économique (simplifiée) de la rentabilité du stockage.</p>
 
 ###### Fonctionnement du système de stockage : 
 
@@ -150,19 +134,24 @@ Avec une charge par jour et une décharge par jour, il faut donc que le système
 
 *Pour expliquer ce point de vue voici deux graphiques, et le profit réalisé en fonction du rendement*:
 
-
-
 <p float="center"><center>
-    <img src="/home/elouan/Documents/ENPC/TEECO/rho_ok.png" width="300">
-    <img src="/home/elouan/Documents/ENPC/TEECO/rho_nok.png" width="300">
+    <img src="/home/elouan/Documents/ENPC/TEECO/rho_ok.png" width="250">
+    <img src="/home/elouan/Documents/ENPC/TEECO/rho_nok.png" width="250">
     </center>
 </p>
 
+
+
+
+
+
+
+
+
 *Le 21/01 en fonction du rendement, il n'est pas forcément rentable d'opérer à une charge et à une décharge d'electricité :*
 
-* Avec un $\rho=0.5$, le système de stockage n'est pas rentable, car il ne peut pas se charger et se décharger en réalisant un profit. Il faut donc envisager un rendement plus important avoir d'avoir une rentabilité.
-
-
+* Avec un $\rho=0.5$, le système de stockage **n'est pas rentable**, car il ne peut pas se charger et se décharger en réalisant un profit. Il faut donc envisager un rendement plus important avoir d'avoir une rentabilité.
+* Avec un $\rho=0.7$, le système de stockage **est  rentable**, il peut  se charger et se décharger en réalisant un profit. 
 
 ##### Bilan pour plusieurs rendement sur un mois
 
@@ -170,15 +159,17 @@ Avec une charge par jour et une décharge par jour, il faut donc que le système
 
 ![image-20210116162222584](/home/elouan/.config/Typora/typora-user-images/image-20210116162222584.png)
 
+Ainsi sur de nombreuses journées, un technologie de stockage avec un faible rendement ne permet pas de réaliser du profit. 
+
+**Choix d'une technologie appropriée**
+
 
 
 
 
 Voici quelques éléments de réponse à tes questions :
 
-Partie 1 Q3 : oui c'est tout à fait cette démarche qui est        attendu. Le graphe me semble bien. Ensuite l'objectif est de        comparer ce que tu as pu obtenir avec les données réelles afin        d'identifier les grandes différences et d'expliquer en quelques        mots pourquoi il y a des différences.
 
-Partie 2
 
 La formulation de la question 2 comporte effectivement une        erreur de signe comme tu le mentionnes. Pour le bilan        économique, il faut bien compter la charge en négatif (on paie        pour charger) et la décharge en positif (on gagne de l'argent        lorsqu'on décharge). Je vais corriger l'énoncé. Merci.
 
