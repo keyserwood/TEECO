@@ -295,6 +295,34 @@ Avec ces technologies on peut dégager un profit relativement intéressant, et e
 
 ## Complexification de la modélisation du stockage (problème d’optimisation)
 
+
+
+##### Formulation du problème d'optimisation 
+
+$$ max \sum_{h \in heures} Prix(h)\times(-Edecharge(h)-Echarge(h))$$
+
+**Sous contraintes :** 
+
+​				$$0 \leq Echarge(h) \leq Pmax $$                                                          [1]
+
+​				$$ -Pmax \leq Edecharge(h) \leq 0 $$                                                   [2]
+
+​				$$ SoC(h+1) = SoC(h) + \rho Edecharge(h)+Echarge(h) $$      [3]
+
+​				$$0 \leq SoC(h) \leq Emax $$                                                                  [4]
+
+​				$$ SoC(0) = 0$$                                                                                   [5]
+
+#### Résolution avec XPRESS MP
+
+
+
+
+
+
+
+
+
 <div style="page-break-after: always;"></div><br><br><br>
 
 ## Annexe :
