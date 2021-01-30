@@ -289,7 +289,7 @@ Plus le ratio est elevé, et plus l'installation est intéressante. Voici les pr
     </center>
 </p>
 
-Avec ces technologies on peut dégager un profit relativement intéressant, et en privilégiant le ratio $\frac{\rho}{Installation\:cost}$ le plus éléve, on minimise les frais d'installations, et on augmente donc la rentabilité du système, les CAPEX ayant une grande importance sur la rentabilité d'un projet.
+Avec ces technologies on peut dégager un profit relativement intéressant, et en privilégiant le ratio $\frac{\rho}{Installation\:cost}$ le plus éléve - ici Lead-Acid. On minimise les frais d'installations, et on augmente donc la rentabilité du système, les CAPEX ayant une grande importance sur la rentabilité d'un projet.
 
 <div style="page-break-after: always;"></div><br><br><br>
 
@@ -347,7 +347,11 @@ Pour comparer l'évolution par rapport aux résultats précédénts :
 | High temperature : $\rho$ = 0.82 | 443€               | 632.22€            | + 42.7%        |
 | Li-ion : $\rho$ = 0.94           | 635€               | 912.96€            | + 43.7%        |
 
-L'optimisation du système de revenus heure par heure avec des contraintes permet donc d'améliorer de façon significative (+42%) le profit réalisé sur le mois de janvier. 
+
+
+
+
+> **Conclusion** : L'optimisation du système de revenus heure par heure avec des contraintes permet donc d'améliorer de façon significative (+42%) le profit réalisé sur le mois de janvier.  Une fois de plus en optimisant le ratio $\frac{\rho}{Installation\:cost}$, on dispose d'une installation de stockage performante avec des coûts d'installations les plus faibles possibles. 
 
 <div style="page-break-after: always;"></div><br><br><br>
 
