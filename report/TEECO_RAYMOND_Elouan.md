@@ -341,13 +341,13 @@ Sur la base des travaux effectués précedemment, on peut regarder l'évolution 
 
 Pour comparer l'évolution par rapport aux résultats précédénts : 
 
-| Solution                         | Profits sans optim | Profits avec optim |
-| -------------------------------- | ------------------ | ------------------ |
-| Lead acid : $\rho$ = 0.81        | 428€               | 610.63€            |
-| High temperature : $\rho$ = 0.82 | 443€               | 632.22€            |
-| Li-ion : $\rho$ = 0.94           | 635€               | 912.96€            |
+| Solution                         | Profits sans optim | Profits avec optim | % augmentation |
+| -------------------------------- | ------------------ | ------------------ | -------------- |
+| Lead acid : $\rho$ = 0.81        | 428€               | 610.63€            | + 42.6%        |
+| High temperature : $\rho$ = 0.82 | 443€               | 632.22€            | + 42.7%        |
+| Li-ion : $\rho$ = 0.94           | 635€               | 912.96€            | + 43.7%        |
 
-​	
+L'optimisation du système de revenus heure par heure avec des contraintes permet donc d'améliorer de façon significative (+42%) le profit réalisé sur le mois de janvier. 
 
 <div style="page-break-after: always;"></div><br><br><br>
 
