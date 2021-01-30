@@ -295,8 +295,6 @@ Avec ces technologies on peut dégager un profit relativement intéressant, et e
 
 ## Complexification de la modélisation du stockage (problème d’optimisation)
 
-
-
 ##### Formulation du problème d'optimisation 
 
 $$ max \sum_{h \in heures} Prix(h)\times(-Edecharge(h)-Echarge(h))$$
@@ -307,21 +305,49 @@ $$ max \sum_{h \in heures} Prix(h)\times(-Edecharge(h)-Echarge(h))$$
 
 ​				$$ -Pmax \leq Edecharge(h) \leq 0 $$                                                   [2]
 
-​				$$ SoC(h+1) = SoC(h) + \rho Edecharge(h)+Echarge(h) $$      [3]
+​				$$ SoC(h+1) = SoC(h) + \rho.Echarge(h)+Edecharge $$          [3]
 
 ​				$$0 \leq SoC(h) \leq Emax $$                                                                  [4]
 
 ​				$$ SoC(0) = 0$$                                                                                   [5]
 
-#### Résolution avec XPRESS MP
+#### Résolution sous python avec OR Tools.
+
+> Le code utilisé pour résoudre ce problème se trouve en annexe 
+
+Une fois le problème d'optimisation implementé sous python, avec comme entrées : Prix mensuel, $\rho$, $P_{max}$, $ E_{max}$, on peut calculer les cycles de charge et décharge, l'evolution de la SoC (State of Charge) de la batterie et enfin le profit réalisé par le système.
+
+<img src="/home/elouan/Documents/ENPC/TEECO/report/img/optim_pt2.png" alt="image-20210130123651520" style="zoom:52%;" />
+
+La présence d'un rendement à l'entrée du système empêche la charge complète au premier cycle, ce qui explique les deux premières charges au début.
+
+#### Visualisation du profit journalier 
+
+<img src="/home/elouan/Documents/ENPC/TEECO/report/img/profit_optim.png" alt="image-20210130123729964" style="zoom:45%;" />
+
+Si on compare avec les simulations réalisées précedemment, on observe que le profit mensuel pour $\rho = 0.81$ est désormais de 610.63€ contre 428€ auparavant.
+
+ <div style="page-break-after: always;"></div><br><br><br>
+
+#### Synthèse des profits avec les 3 rendements 
+
+Sur la base des travaux effectués précedemment, on peut regarder l'évolution des profits pour les trois solutions : *Lead-Acid* (0.81) ,*High-temperature* (0.82),*Li-ion* (0.94).
+
+<img src="/home/elouan/Documents/ENPC/TEECO/report/img/daily_profit.png" alt="image-20210130130423651" style="zoom:50%;" />
+
+<img src="/home/elouan/Documents/ENPC/TEECO/report/img/cumsum_comp.png" alt="image-20210130131245402" style="zoom:50%;" />
 
 
 
+Pour comparer l'évolution par rapport aux résultats précédénts : 
 
+| Solution                         | Profits sans optim | Profits avec optim |
+| -------------------------------- | ------------------ | ------------------ |
+| Lead acid : $\rho$ = 0.81        | 428€               | 610.63€            |
+| High temperature : $\rho$ = 0.82 | 443€               | 632.22€            |
+| Li-ion : $\rho$ = 0.94           | 635€               | 912.96€            |
 
-
-
-
+​	
 
 <div style="page-break-after: always;"></div><br><br><br>
 
