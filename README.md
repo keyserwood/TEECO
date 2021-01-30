@@ -16,6 +16,9 @@ Projet réalisé dans le cadre du cours d'économie de l'énergie dispensé dans
 │   ├── 1.0-er_project_french_electric .ipynb (Question sur le dispatch)
 │   └── 1.1-er-deal_with_storage.ipynb (Question 2 sur le stockage)
 ├── README.md
+├── optim_pt2
+│   ├── 1.1-er_optim_w_or_tools.ipynb (optimisation stockage avec OR tools)
+│   └── data_optim.xls
 ├── report
 │   ├── img (images utilisées pour le rapport)
 │   ├── TEECO_RAYMOND_Elouan.md (rapport au format html/markdown)
