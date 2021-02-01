@@ -81,7 +81,7 @@
 > 
 > *Qui fournit les donnés disponibles sur ces sites ? Pourquoi ?* 
 
-<p style="text-align:justify;"><b>La loi  pour une république numérique</b> du 7 octobre 2016 (ou loi Lemaire) prévoit entre autre l'accès aux données publiques. L'Etat, les collectivités, les personnes de droit public ou de droit privés chargées d'une mission de service public doivent fournir des données. De nombreuses base de données sont ainsi accessible, comme le registre Sirene des entreprises, mais aussi les données liée à l'energie. <br>De nombreux acteurs de l'énergie public ou privés ont mis à disposition des données (hors données personnelles). <b>EDF</b> a mis en ligne les données propres à ses infrastructures, sa production et la consommation en Corse et en outre-mer. <b>Enedis et RTE</b> qui gèrent le réseau de distribution mettent en ligne les quantités d'électricité consommées et produites sur toute la France. GRTgaz et Teréga ont créé la plateforme opendata réseaux qui regroupe des acteurs privés afin de coupler données energétiques et données climatiques. Un accès et une mutualisation de ces données permet une <b>meilleure comprhénsion du système</b> et de <b>meilleures prises de décisions</b>, notamment grâce à des <b>analyses intersectorielles</b>.</p>
+<p style="text-align:justify;"><b>La loi  pour une république numérique</b> du 7 octobre 2016 (ou loi Lemaire) prévoit entres autres l'accès aux données publiques. L'Etat, les collectivités, les personnes de droit public ou de droit privés chargés d'une mission de service public doivent fournir des données. De nombreuses bases de données sont ainsi accessibles, comme le registre Sirene des entreprises, mais aussi les données liées à l'energie. <br>De nombreux acteurs de l'énergie public ou privée ont mis à disposition des données (hors données personnelles). <b>EDF</b> a mis en ligne les données propres à ses infrastructures, sa production et la consommation en Corse et en outre-mer. <b>Enedis et RTE</b> qui gèrent le réseau de distribution mettent en ligne les quantités d'électricité consommées et produites sur toute la France. GRTgaz et Teréga ont créé la plateforme opendata réseaux qui regroupent des acteurs privés afin de coupler données energétiques et données climatiques. Un accès et une mutualisation de ces données permet une <b>meilleure compréhénsion du système</b> et de <b>meilleures prises de décisions</b>, notamment grâce à des <b>analyses intersectorielles</b>.</p>
 
 #### Question 2 : Le mix électrique
 
@@ -108,8 +108,7 @@ RTE réalise un bilan à la fin de chaque année pour faire un tour d'horizon de
 </div>
 
 
-
-<p style="text-align:justify;">Voici la représentation du dispatch que nous souhaitons reproduire. Pour ce faire, nous allons construire un module python qui prend en entrée la demande journalière et les capacités de production disponible. Si la <b>production</b> est <b>supérieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>exportée</b>. A l'inverse, Si la <b>production</b> est <b>inférieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>importée</b>. La capacité de production totale dépendra des capacités installées sur le système. Nous pourrons donc faire varier le dispatch en fonction du nombre d'outils de production. Le code est disponible en annexe.</p>
+<p style="text-align:justify;">Voici la représentation du dispatch que nous souhaitons reproduire. Pour ce faire, nous allons construire un module python qui prend en entrée la demande journalière et les capacités de productions disponibles. Si la <b>production</b> est <b>supérieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>exportée</b>. A l'inverse, Si la <b>production</b> est <b>inférieure</b> à la <b>demande</b> <b>l'electricité</b> sera <b>importée</b>. La capacité de production totale dépendra des capacités installées sur le système. Nous pourrons donc faire varier le dispatch en fonction du nombre d'outils de production. Le code est disponible en annexe.</p>
 
 <div style="page-break-after: always;"></div><br><br>
 
@@ -131,7 +130,7 @@ Ci dessous, voici le vrai mix electrique de la journée du 01/01/2020, les donn�
 
 ##### Quelques remarques : 
 
-<p style="text-align:justify;">Par rapport au module python que nous avons implémenté, on peut observer que la production totale est tout le temps bien supérieure à la consommation réelle.<br>Le nombre de moyens de production est bien entendu beaucoup plus varié : 10 moyens de production différent, avec toujours une part majoritaire d'électricité produite grâce au nucléaire. La production d'électricité via les énergies éoliennes et solaires reste assez marginale en ce premier jour de janvier. <br>La courbe de consommation est moins accentuée que celle que nous avons construire pour notre module, mais nous observons tout de même des variations logiques au cours de la journée.</p>
+<p style="text-align:justify;">Par rapport au module python que nous avons implémenté, nous pouvons observer que la production totale est tout le temps bien supérieure à la consommation réelle.<br>Le nombre de moyens de production est bien entendu beaucoup plus varié : 10 moyens de production différents, avec toujours une part majoritaire d'électricité produite grâce au nucléaire. La production d'électricité via les énergies éoliennes et solaires reste assez marginale en ce premier jour de janvier. <br>La courbe de consommation est moins accentuée que celle que nous avons construire pour notre module, mais nous observons tout de même des variations logiques au cours de la journée.</p>
 
 <div style="page-break-after: always;"></div><br><br><br>
 
@@ -329,7 +328,7 @@ Si on compare avec les simulations réalisées précedemment, on observe que le 
 
  <div style="page-break-after: always;"></div><br><br><br>
 
-#### Synthèse des profits avec les 3 rendements 
+#### Synthèse des profits avec 3 technologies différentes 
 
 Sur la base des travaux effectués précedemment, on peut regarder l'évolution des profits pour les trois solutions : *Lead-Acid* (0.81) ,*High-temperature* (0.82),*Li-ion* (0.94).
 
@@ -351,7 +350,7 @@ Pour comparer l'évolution par rapport aux résultats précédénts :
 
 
 
-> **Conclusion** : L'optimisation du système de revenus heure par heure avec des contraintes permet donc d'améliorer de façon significative (+42%) le profit réalisé sur le mois de janvier.  Une fois de plus en optimisant le ratio $\frac{\rho}{Installation\:cost}$, on dispose d'une installation de stockage performante avec des coûts d'installations les plus faibles possibles. 
+> **Conclusion** : L'optimisation du système de revenus heure par heure avec des contraintes permet donc d'améliorer de façon significative (+42%) le profit réalisé sur le mois de janvier.  Une fois de plus en optimisant le ratio $\frac{\rho}{Installation\:cost}$, on dispose d'une installation de stockage performante avec des coûts d'installation les plus faibles possibles. 
 
 <div style="page-break-after: always;"></div><br><br><br>
 
